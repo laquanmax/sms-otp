@@ -22,31 +22,6 @@ class OTP
         $this->is_verified = $is_verified;
         $this->expired_at = new Carbon($expired_at);
     }
-
-    public function setNumber($number)
-    {
-        $this->number = $number;
-    }
-
-    public function setCode($code)
-    {
-        $this->code = $code;
-    }
-    
-    public function setToken($token)
-    {
-        $this->token = $token;
-    }
-
-    public function setIsVerified($is_verified)
-    {
-        $this->is_verified = $is_verified;
-    }
-    
-    public function setExpiredAt($expired_at)
-    {
-        $this->expired_at = $expired_at;
-    }
     
     public function number()
     {
