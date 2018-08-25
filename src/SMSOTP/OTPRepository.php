@@ -34,10 +34,10 @@ class OTPRepository implements Repository
 
         if ($details)
         {
-            $otp->number = $details->number;
-            $otp->code = $details->code;
-            $otp->token = $details->token;
-            $otp->is_verified = $details->is_verified;
+            $otp->setNumber = $details->number;
+            $otp->setCode = $details->code;
+            $otp->setToken = $details->token;
+            $otp->setIsVerified = $details->is_verified;
             $otp->expired_at = $details->expired_at;
         }
 
