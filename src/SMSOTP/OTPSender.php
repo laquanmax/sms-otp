@@ -18,7 +18,7 @@ class OTPSender
         $this->sms = $sms;
     }
 
-    public function send($number, $message, $action = OTP::ACTION_DEFAULT)
+    public function send($number, $message, $token, $action = OTP::ACTION_DEFAULT)
     {
         $code = $this->code->generate();
 
@@ -26,6 +26,6 @@ class OTPSender
 
         $this->sms->send($number, $message);
 
-        $this->repository->save_otp($number, $code, $action);
+        $this->repository->save_otp($number, $code, $token, $action);
     }
 }
