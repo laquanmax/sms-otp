@@ -24,9 +24,9 @@ class OTPRepository implements Repository
 
     public function otp_details($number, $code, $action = OTP::ACTION_DEFAULT)
     {
-        $details = UserOTP::where('number', '=', $number)
-            ->where('code', '=', $code)
-            ->where('action', '=', $action)
+        $details = UserOTP::whereNumber($number)
+            ->whereCode($code)
+            ->whereAction($action)
             ->orderBy('created_at', 'desc')
             ->first();
 
@@ -36,6 +36,7 @@ class OTPRepository implements Repository
         {
             $otp->number = $details->number;
             $otp->code = $details->code;
+            $otp->token = $details->token;
             $otp->is_verified = $details->is_verified;
             $otp->expired_at = $details->expired_at;
         }
