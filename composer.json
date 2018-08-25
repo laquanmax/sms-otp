@@ -1,5 +1,5 @@
 {
-    "name": "aqlx86/sms-otp",
+    "name": "laquanmax/sms-otp",
     "description": "SMS OTP for Laravel 5 using iSMS gateway.",
     "keywords": ["sms", "isms", "laravel", "otp"],
     "homepage": "https://github.com/aqlx86/sms-otp",
@@ -30,5 +30,15 @@
         "sort-packages": true,
         "optimize-autoloader": true,
         "bin-dir": "bin"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SMSOTP\\SMSOTPServiceProvider"
+            ],
+            "aliases": {
+                "SMS": "SMSOTP\\SMSOTPServiceProvider"
+            }
+        }
     }
 }
