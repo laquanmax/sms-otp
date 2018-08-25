@@ -10,17 +10,39 @@ class OTP
 
     protected $number;
     protected $code;
+    protected $token;
     protected $is_verified;
     protected $expired_at;
 
-    public function __construct($number = null, $code = null, $is_verified = null, $expired_at = null)
+    public function __construct($number = null, $code = null, $token = null, $is_verified = null, $expired_at = null)
     {
         $this->number = $number;
         $this->code = $code;
+        $this->token = $token;
         $this->is_verified = $is_verified;
         $this->expired_at = new Carbon($expired_at);
     }
 
+    public function setNumber($number)
+    {
+        $this->number = $number;
+    }
+
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+    
+    public function setToken($token)
+    {
+        $this->token = $token;
+    }
+
+    public function setIsVerified($is_verified)
+    {
+        $this->is_verified = $is_verified;
+    }
+    
     public function number()
     {
         return $this->number;
@@ -29,6 +51,11 @@ class OTP
     public function code()
     {
         return $this->code;
+    }
+    
+    public function token()
+    {
+        return $this->token;
     }
 
     public function is_verified()
