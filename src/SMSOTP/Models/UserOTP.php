@@ -13,6 +13,7 @@ class UserOTP extends Model
         'code',
         'action',
         'is_verified',
+        'token',
         'expired_at'
     ];
 }
