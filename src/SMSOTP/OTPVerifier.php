@@ -27,6 +27,7 @@ class OTPVerifier
         if ($otp->is_expired())
             throw new Exception\OTPExpiredException('expired otp code');
 
+        $this->repository->mark_otp_verified($code);
         return $otp;
     }
 }
