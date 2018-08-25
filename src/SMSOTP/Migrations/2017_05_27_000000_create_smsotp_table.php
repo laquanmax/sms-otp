@@ -19,6 +19,7 @@ class CreateSmsotpTable extends Migration
             $table->string('code');
             $table->string('action')->default('default');
             $table->tinyInteger('is_verified')->default(false);
+            $table->text('token');
             $table->timestamp('expired_at')->nullable();
             $table->timestamps();
         });
