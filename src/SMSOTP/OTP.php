@@ -43,6 +43,11 @@ class OTP
         $this->is_verified = $is_verified;
     }
     
+    public function setExpiredAt($expired_at)
+    {
+        $this->expired_at = $expired_at;
+    }
+    
     public function number()
     {
         return $this->number;
