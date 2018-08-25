@@ -10,13 +10,13 @@ use Carbon\Carbon;
 
 class OTPRepository implements Repository
 {
-    public function save_otp($number, $code, $action = OTP::ACTION_DEFAULT)
+    public function save_otp($number, $code, $token, $action = OTP::ACTION_DEFAULT)
     {
         $expired_at = Carbon::now()->addSeconds(config('smsotp.ttl'));
 
         $otp = UserOTP::updateOrCreate(
             ['number' => $number, 'action' => $action],
-            ['code' => $code, 'expired_at' => $expired_at]
+            ['code' => $code, 'expired_at' => $expired_at, 'token' => $token]
         );
 
         $otp->save();
